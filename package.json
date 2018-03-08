@@ -1,0 +1,12 @@
+{
+  "name": "rgb-guessing-game",
+  "version": "1.0.0",
+  "description": "Simple colour guessing game using RGB values",
+  "main": "game-page.html",
+  "scripts": {
+    "start": "node game-page.html"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Garrison",
+  "license": "ISC"
+}

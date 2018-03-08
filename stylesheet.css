@@ -1,0 +1,98 @@
+html, body {
+	background-color: #232323;
+	margin: 0;
+	font-family: "Rubik";
+	height: 100%;
+}
+
+h1 {
+	color: white;
+	text-align: center;
+	background-color: steelblue;
+	margin: 0;
+	line-height: 1.1;
+	font-weight: normal;
+	padding: 20px 0;
+}
+
+button {
+	border: none;
+	background: none;
+	/*text-transform: uppercase;*/
+	height: 100%;
+	font-weight: 700;
+	color: steelblue;
+	font-size: inherit;
+	font-family: 'Josefin Sans', sans-serif;
+	outline: none;
+	letter-spacing: 1px;
+	transition: all 0.3s;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+}
+
+button:hover {
+	background-color: steelblue;
+	color: white;
+}
+
+.square {
+	width: 30%;
+	height: 30%;
+	background: purple;
+	padding-bottom: 30%;
+	float: left;
+	margin: 1.66%;
+	border-radius: 15%;
+	transition: background 0.6s;
+	-webkit-transition: background 0.6s;
+	-moz-transition: background 0.6s;
+	position: relative;
+}
+
+.number-in-square {
+	position: absolute;
+	font-size: 30px;
+	color: #232323;
+	top: 50%;
+  	left: 50%;
+  	transform: translate(-50%, -50%);
+
+}
+
+.selected {
+	background-color: steelblue;
+	color: white;
+}
+
+#message {
+	display: inline-block;
+	width: 20%;
+	font-family: 'Josefin Sans', sans-serif;
+	/*text-transform: lowercase;*/
+}
+
+#colorDisplay {
+	font-size: 200%;
+	text-transform: uppercase;
+}
+
+#container {
+	width: 600px;
+	margin: 20px auto;
+}
+
+#stripe {
+	background: white;
+	height: 30px;
+	text-align: center;
+}
+
+footer {
+	position: relative;
+	width: 100%;
+    background-color: #efefef;
+    display: inline-block;
+    text-align: center;
+}
+

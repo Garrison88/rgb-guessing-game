@@ -1,0 +1,1 @@
+Can you guess which color is correct based on the RGB values?
