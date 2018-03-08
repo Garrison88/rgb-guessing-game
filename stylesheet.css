@@ -5,6 +5,12 @@ html, body {
 	height: 100%;
 }
 
+#share-bar {
+	color: white;
+	float: right;
+	position: absolute;
+}
+
 h1 {
 	color: white;
 	text-align: center;
@@ -95,4 +101,3 @@ footer {
     display: inline-block;
     text-align: center;
 }
-
