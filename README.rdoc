@@ -1,1 +1,3 @@
 Can you guess which color is correct based on the RGB values?
+
+Use your keyboard or mouse to choose the color closest to the provided RGB value. A correct guess will also yield the name of the closest color.
