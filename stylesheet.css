@@ -6,9 +6,13 @@ html, body {
 }
 
 #share-bar {
-	color: black;
 	float: right;
 	position: absolute;
+}
+
+#share-bar a {
+	color: black;
+	/*outline: none;*/
 }
 
 h1 {
@@ -90,6 +94,10 @@ button:hover {
 	background: white;
 	height: 30px;
 	text-align: center;
+}
+
+#stripe button {
+	outline: none;
 }
 
 footer {
