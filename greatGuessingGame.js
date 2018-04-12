@@ -1,16 +1,16 @@
-var numSquares   = 6,
-    colors       = [],
-    squares      = $(".square"),
-    gameModeBtn  = $(".game-mode-btn"),
-    colorDisplay = document.querySelector("#colorDisplay"),
-    message      = document.querySelector("#message"),
-    h1           = document.querySelector("h1"),
-    newButton    = document.querySelector("#reset"),
-    pickedColorRGB,
-    pickedColorHEX,
-    typedChar,
-    correctNum,
-    gameOver;
+let numSquares   = 6;
+let colors       = [];
+let squares      = $(".square");
+let gameModeBtn  = $(".game-mode-btn");
+let colorDisplay = document.querySelector("#colorDisplay");
+let message      = document.querySelector("#message");
+let h1           = document.querySelector("h1");
+let newButton    = document.querySelector("#reset");
+let pickedColorRGB;
+let pickedColorHEX;
+let typedChar;
+let correctNum;
+let gameOver;
 
 init();
 
@@ -21,42 +21,40 @@ function init() {
 			gameModeBtn[0].classList.remove("selected");
 			gameModeBtn[1].classList.remove("selected");
 			this.classList.add("selected");
-			numSquares = this.textContent === "Easy [E]" 
-								   ? 3 
-									 : 6;
+			numSquares = this.textContent === "Easy [E]" ? 3 : 6;
 			reset();
 		});
 	}
 
-	$("body").on("keypress", function (e){
+	$("body").on("keypress", (e) => {
 		var typedChar = String.fromCharCode(e.keyCode);
 		switch(typedChar) {	
-			//add 1 to typedChar result because squares[] is zero-based
-			case String(correctNum+1):
-        gameWon();
+		//add 1 to typedChar result because squares[] is zero-based
+		case String(correctNum+1):
+        	gameWon();
         break;
 	    case "N":
 	    case "n":
-        reset();
+        	reset();
         break;
 	    case "E":
 	    case "e":
-        gameModeBtn[1].classList.remove("selected");
-				gameModeBtn[0].classList.add("selected");
-				numSquares = 3;
-				reset();
-				break;
-			case "H":
-			case "h":
-				gameModeBtn[0].classList.remove("selected");
-				gameModeBtn[1].classList.add("selected");
-				numSquares = 6;
-				reset();
-				break;
-			default:
-				if (typedChar > 0 && typedChar <= numSquares && !gameOver)  {
-					squares[Number(typedChar-1)].style.backgroundColor = "#232323";
-				}
+        	gameModeBtn[1].classList.remove("selected");
+			gameModeBtn[0].classList.add("selected");
+			numSquares = 3;
+			reset();
+		break;
+		case "H":
+		case "h":
+			gameModeBtn[0].classList.remove("selected");
+			gameModeBtn[1].classList.add("selected");
+			numSquares = 6;
+			reset();
+		break;
+		default:
+			if (typedChar > 0 && typedChar <= numSquares && !gameOver)  {
+				squares[Number(typedChar-1)].style.backgroundColor = "#232323";
+			}
 		}
 	});
 
@@ -119,9 +117,7 @@ function changeColors(color) {
 function gameWon() {
 	newButton.textContent = "New Game [N]";
 	var n_match = ntc.name(pickedColorHEX);
-	message.textContent = n_match[2] 
-											  ? "exact match: " + n_match[1] 
-											  : "close to: " + n_match[1];
+	message.textContent = n_match[2] ? "exact match: " + n_match[1] : "close to: " + n_match[1];
 	h1.style.backgroundColor = pickedColorRGB;
 	changeColors(pickedColorRGB);
 	gameOver = true;
@@ -170,7 +166,7 @@ function toHex(n) {
 // This script is released under the: Creative Commons License:
 // Attribution 2.5 http://creativecommons.org/licenses/by/2.5/
 
-var ntc = {
+let ntc = {
 
   init: function() {
     var color, rgb, hsl;
