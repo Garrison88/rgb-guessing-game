@@ -8,7 +8,6 @@ let h1           = document.querySelector("h1");
 let newButton    = document.querySelector("#reset");
 let pickedColorRGB;
 let pickedColorHEX;
-let typedChar;
 let correctNum;
 let gameOver;
 
@@ -63,16 +62,9 @@ function init() {
 		squares[i].style.backgroundColor = colors[i];
 		//add click listeners to squares
 		squares[i].addEventListener("click", function(){
-			//grab color of picked square
-			var clickedColor = this.style.backgroundColor;
 			//compare color to pickedColorRGB
-			if (clickedColor === pickedColorRGB) {
-				gameWon();
-			} else {
-				this.style.backgroundColor = "#232323";
-			}
+			this.style.backgroundColor === pickedColorRGB ? gameWon() : this.style.backgroundColor = "#232323";
 		});
-		
 	};
 	reset();
 };
@@ -104,7 +96,7 @@ function randomColor() {
 	var r = Math.floor(Math.random() * 256);
 	var g = Math.floor(Math.random() * 256);
 	var b = Math.floor(Math.random() * 256);
-	return ("rgb(" + r + ", " + g + ", " + b + ")");
+	return (`rgb(${r}, ${g}, ${b})`);
 }
 
 function changeColors(color) {
@@ -117,7 +109,7 @@ function changeColors(color) {
 function gameWon() {
 	newButton.textContent = "New Game [N]";
 	var n_match = ntc.name(pickedColorHEX);
-	message.textContent = n_match[2] ? "exact match: " + n_match[1] : "close to: " + n_match[1];
+	message.textContent = n_match[2] ? `exact match: ${n_match[1]}` : `close to: ${n_match[1]}`;
 	h1.style.backgroundColor = pickedColorRGB;
 	changeColors(pickedColorRGB);
 	gameOver = true;
