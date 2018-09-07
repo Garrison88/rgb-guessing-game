@@ -1,7 +1,7 @@
 let numSquares   = 6;
 let colors       = [];
-let squares      = $(".square");
-let gameModeBtn  = $(".game-mode-btn");
+let squares      = document.querySelectorAll(".square");
+let gameModeBtn  = document.querySelectorAll(".game-mode-btn");
 let colorDisplay = document.querySelector("#colorDisplay");
 let message      = document.querySelector("#message");
 let h1           = document.querySelector("h1");
@@ -25,11 +25,10 @@ function init() {
 		});
 	}
 
-	$("body").on("keypress", (e) => {
-		var typedChar = String.fromCharCode(e.keyCode);
-		switch(typedChar) {	
+	window.addEventListener("keypress", (e) => {
+		switch(e.key) {
 		//add 1 to typedChar result because squares[] is zero-based
-		case String(correctNum+1):
+		case (String(correctNum+1)):
         	gameWon();
         break;
 	    case "N":
@@ -51,9 +50,8 @@ function init() {
 			reset();
 		break;
 		default:
-			if (typedChar > 0 && typedChar <= numSquares && !gameOver)  {
-				squares[Number(typedChar-1)].style.backgroundColor = "#232323";
-			}
+			if (e.key > 0 && e.key <= numSquares && !gameOver) 
+				squares[Number(e.key-1)].style.backgroundColor = "#232323";
 		}
 	});
 
